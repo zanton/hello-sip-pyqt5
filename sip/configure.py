@@ -3,8 +3,11 @@ import sipconfig
 from PyQt5 import QtCore
 
 # You should modify to get exact directory paths to SIP, Qt
-sip_inc_dir = "/usr/local/share/sip/PyQt5"
-qt_inc_dir = "/opt/Qt5.9.1/5.9.1/gcc_64/include"
+#sip_inc_dir = "/usr/local/share/sip/PyQt5"
+#qt_inc_dir = "/opt/Qt5.9.1/5.9.1/gcc_64/include"
+home_dir = os.path.expanduser('~')
+sip_inc_dir = home_dir + "/local/share/sip/PyQt5"
+qt_inc_dir = home_dir + "/local/Qt5.9.1/5.9.1/gcc_64/include"
 
 target_dir = os.getcwd() + "/../src"
 

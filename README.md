@@ -4,11 +4,19 @@ hello-sip-pyqt5
 An example of building a Qt-based GUI app with both Python and C++ interfaces of Qt (PyQt5 and Qt5).
 The connection between C++ and Python is based on the SIP tool which is used to make Python bindings for C/C++ code.
 
+The central widget of the GUI is a QPainter surface to be drawn on, and this QPainter surface is drawn by both 
+Python code and C++ code.
+
+GUI
+------
+![alt text](gui.png)
+
 Dependencies
 ------
 1. Qt5 v5.9.1: https://www.qt.io/download/
 2. SIP 4.19.3: https://www.riverbankcomputing.com/software/sip/download
 3. PyQt5 v5.9: https://www.riverbankcomputing.com/software/pyqt/download5
+4. Python 3 (python3)
 
 Quick start
 ------
@@ -17,15 +25,15 @@ Quick start
 $ git clone git@github.com:zanton/hello-sip-pyqt5.git
 $ cd hello-sip-pyqt5
 $ make
-$ python runme.py
+$ python3 runme.py
 ```
 
-Quick tips
+Quick troubleshootings
 ------
 
 - Ensure PyQt5 modules are included in system's Python path:
   ```bash
-  $ export PYTHONPATH=/usr/local/lib/python2.7/dist-packages:$PYTHONPATH
+  $ export PYTHONPATH=/usr/local/lib/python3.5/dist-packages:$PYTHONPATH
   ```
 
 - src/hello.pro: ensure Qt5's include directory is included in system's include path,

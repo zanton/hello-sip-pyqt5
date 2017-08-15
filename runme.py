@@ -74,7 +74,7 @@ class MainWindow(QMainWindow):
                qApp.quit()
                
     def xcloseEvent(self, event):
-        print "closeEvent handler."
+        print("closeEvent handler.")
         reply = QMessageBox.question(self, 'Message', "Are you sure to quit?",
                                      QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
         if reply == QMessageBox.Yes:
