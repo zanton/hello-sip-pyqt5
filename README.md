@@ -31,21 +31,59 @@ $ python3 runme.py
 Quick troubleshootings
 ------
 
-- Ensure PyQt5 modules are included in system's Python path:
+- Ensure PyQt5 modules are included in system's Python path, e.g.,
   ```bash
-  $ export PYTHONPATH=/usr/local/lib/python3.5/dist-packages:$PYTHONPATH
+  $ export PYTHONPATH=/opt/local/lib/python3.5/dist-packages:$PYTHONPATH
   ```
 
 - src/hello.pro: ensure Qt5's include directory is included in system's include path,
-  otherwise add it to INCLUDEPATH variable in src/hello.pro:
+  otherwise add it to INCLUDEPATH variable in src/hello.pro, e.g.,
   ```bash
   INCLUDEPATH += /opt/Qt5.9.1/5.9.1/gcc_64/include
   ```
 
 - sip/configure.py: ensure PyQt5's SIP include directory and Qt5's include directory are included in system's include path,
-  otherwise change to correct paths in sip/configure.py:
+  otherwise change to correct paths in sip/configure.py, e.g.,
   ```bash
-  sip_inc_dir = "/usr/local/share/sip/PyQt5"
+  sip_inc_dir = "/opt/local/share/sip/PyQt5"
   qt_inc_dir = "/opt/Qt5.9.1/5.9.1/gcc_64/include"
   ```
 
+More details
+------
+
+1. Qt5 installation:
+
+```bash
+/home/zanton/local/Qt5.9.1
+```
+
+2. SIP installation:
+
+```bash
+$ python3 configure.py --sysroot=/home/zanton/local --configuration myconfig.txt
+$ make
+$ make install
+```
+
+myconfig.txt
+
+```python
+# The target Python installation.
+py_platform = linux
+py_inc_dir = /usr/include/python%(py_major).%(py_minor)
+
+# Where SIP will be installed.
+sip_bin_dir = %(sysroot)/bin
+sip_inc_dir = %(sysroot)/include
+sip_module_dir = %(sysroot)/lib/python%(py_major)/dist-packages
+sip_sip_dir = %(sysroot)/share/sip
+```
+
+3. PyQt5 installation:
+
+```bash
+$ python3 configure.py --sysroot=/home/zanton/local
+$ make
+$ make install
+```
