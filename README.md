@@ -54,19 +54,28 @@ More details
 
 1. Qt5 installation:
 
+- installation directory 
+
 ```bash
 /home/zanton/local/Qt5.9.1
+```
+
+- src/hello.pro
+
+```python
+INCLUDEPATH += /home/zanton/local/Qt5.9.1/5.9.1/gcc_64/include
 ```
 
 2. SIP installation:
 
 ```bash
+$ cd sip-4.19.3
 $ python3 configure.py --sysroot=/home/zanton/local --configuration myconfig.txt
 $ make
 $ make install
 ```
 
-myconfig.txt
+- myconfig.txt
 
 ```python
 # The target Python installation.
@@ -83,6 +92,7 @@ sip_sip_dir = %(sysroot)/share/sip
 3. PyQt5 installation:
 
 ```bash
+$ cd PyQt5_gpl-5.9
 $ python3 configure.py --sysroot=/home/zanton/local
 $ make
 $ make install
